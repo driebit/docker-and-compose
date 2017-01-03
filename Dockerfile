@@ -1,4 +1,4 @@
-FROM docker:1.12.5
+FROM docker:1.13.0-rc4
 
 ARG compose_version=1.9.0
 
