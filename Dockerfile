@@ -1,10 +1,9 @@
-FROM docker:1.12.1
+FROM docker:1.12.5
 
-ARG compose_version=1.8.0
+ARG compose_version=1.9.0
 
 # Install docker-compose (extra complicated since the base image uses alpine as base)
-RUN apk update && apk add --no-cache \
-    curl openssl ca-certificates \
+RUN apk add --no-cache curl openssl ca-certificates \
     && curl -L https://github.com/docker/compose/releases/download/${compose_version}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose \
     && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub \
